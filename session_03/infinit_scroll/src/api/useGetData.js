@@ -10,7 +10,6 @@ export const useGetData = (endpoint) => {
 
     useEffect(() => {
         const controller = new AbortController();
-        // const signal = controller.signal() -> no confíen a ciegas en el autocompletado, signal es una prop, no un método!!
         const signal = controller.signal;
         const fetchData = async () => {
             try {

@@ -7,7 +7,7 @@ const AddTodo = ({ text, query, setText, addTodo, setQuery }) => {
         setText('');
         Keyboard.dismiss();
     }
-    function search() {
+    function handleSearch() {
         setQuery(text);
         Keyboard.dismiss();
     }
@@ -21,7 +21,7 @@ const AddTodo = ({ text, query, setText, addTodo, setQuery }) => {
                 value={text}
                 onChangeText={setText}
                 label="Agregar o Buscar tareas"
-                right={<TextInput.Icon icon="magnify" onPress={search} />}
+                right={<TextInput.Icon icon="magnify" onPress={handleSearch} />}
             />
             {!query ?
                 (<Button mode='contained' collapsable onPress={addTodo} >Agregar tarea</Button>)

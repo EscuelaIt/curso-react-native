@@ -5,16 +5,18 @@ import MainContent from './src/components/MainContent';
 import { SQLiteProvider } from 'expo-sqlite';
 
 import { initDB } from './src/database/initDB';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 export default function App() {
   return (
 
-    <PaperProvider>
-      <SQLiteProvider databaseName='tasks.db' onInit={initDB}>
-        <MainContent />
-        <StatusBar style="auto" />
-      </SQLiteProvider>
-
-    </PaperProvider>
+    <SQLiteProvider databaseName='tasks.db' onInit={initDB}>
+      <PaperProvider>
+        <GestureHandlerRootView>
+          <MainContent />
+          <StatusBar style="auto" />
+        </GestureHandlerRootView>
+      </PaperProvider>
+    </SQLiteProvider>
   );
 }
 

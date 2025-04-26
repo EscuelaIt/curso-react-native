@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "expo": "~52.0.46",
-    "expo-constants": "~17.0.8",
     "expo-linear-gradient": "~14.0.2",
     "expo-sqlite": "~15.1.4",
     "expo-status-bar": "~2.0.1",

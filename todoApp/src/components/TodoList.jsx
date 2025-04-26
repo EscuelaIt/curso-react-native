@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, StyleSheet, Alert } from 'react-native';
+import { View, FlatList, StyleSheet, Alert } from 'react-native';
+import { Text } from 'react-native-paper';
 import Todo from './Todo';
 import { LinearGradient } from 'expo-linear-gradient';
 import AppHeader from './AppHeader';
@@ -21,6 +22,24 @@ const TodoList = () => {
         }
     };
 
+    const deleteTodo = async (id) => {
+        try {
+            await db.deleteOne(id);
+            list();
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const toogleIsCompleted = async (id, state) => {
+        try {
+            await db.toggleIsCompleted(id, state);
+            list();
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     const list = async () => {
         try {
             const results = await db.findAll();
@@ -30,6 +49,7 @@ const TodoList = () => {
         }
     };
     const filteredTodos = todos.filter(todo => todo.description.toLowerCase().includes(query.toLowerCase()));
+
 
     useEffect(() => {
         list();
@@ -43,15 +63,13 @@ const TodoList = () => {
             <View style={{ flex: 1, padding: 16 }}>
                 <AddTodo text={text} query={query} setText={setText} addTodo={addTodo} setQuery={setQuery} />
 
-
                 <FlatList
                     data={filteredTodos}
                     keyExtractor={(item) => item.id.toString()}
                     showsVerticalScrollIndicator={false}
                     renderItem={({ item }) =>
-                        <Text>{item.text}</Text> //TYPO HERE!!!
 
-                        // <Todo {...item} setQuery={setQuery} setTodos={setTodos} setText={setText}>{item.description}</Todo>
+                        <Todo {...item} deleteTodo={deleteTodo} toggleIsCompleted={toogleIsCompleted}>{item.description}</Todo>
                     }
                 />
 

@@ -3,7 +3,7 @@ import { useState, useCallback } from 'react';
 import { useFocusEffect } from 'expo-router';
 import { Text, ActivityIndicator } from 'react-native-paper';
 import { COLORS, styles } from "../../styles/styles";
-import { getScoreBoard } from '../utils/handleScore';
+import { getScoreBoard } from '../../utils/handleScore';
 
 export default function ScoreBoard() {
     const [scoreBoard, setScoreBoard] = useState();

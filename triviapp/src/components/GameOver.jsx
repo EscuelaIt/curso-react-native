@@ -1,7 +1,7 @@
 import { Alert } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
-import { saveScoreBoard } from '../app/utils/handleScore';
+import { saveScoreBoard } from '../utils/handleScore.js';
 
 export default function GameOver({ score, pointsInGame, onPlayAgain, }) {
     const router = useRouter();

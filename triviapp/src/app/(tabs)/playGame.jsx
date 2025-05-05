@@ -7,7 +7,7 @@ import Question from '../../components/Question';
 import Option from '../../components/Option';
 import Score from '../../components/Score';
 import GameOver from '../../components/GameOver';
-import { getTotalPoints } from '../utils/getTotalPoints';
+import { getTotalPoints } from '../../utils/getTotalPoints';
 const difficulty = {
     "easy": 1,
     "medium": 2,

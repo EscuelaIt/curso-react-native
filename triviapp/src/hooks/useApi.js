@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { formatTrivia } from '../app/utils/formatTrivia';
-const API_URL = "https://opentdb.com/api.php?amount=5";
+import { formatTrivia } from '../utils/formatTrivia';
+const API_URL = "https://opentdb.com/api.php?amount=20";
 
 
 export default function useApi() {

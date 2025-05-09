@@ -11,9 +11,9 @@ export default function CardWoman({ woman }) {
                 style={styles.background}
             />
             <Text style={styles.titleText}>{woman.name} {woman.lastName}</Text>
-            <Image source={{ uri: woman.photo }} style={{ width: 200, height: 200 }} />
+            <Image source={{ uri: woman.photo }} style={{ width: 200, height: 200, borderRadius: 10 }} />
             <Text>{woman.nationality}</Text>
-            <Text>{woman.bio}</Text>
+            <Text style={styles.contentText}>{woman.bio}</Text>
 
         </View>
     );
@@ -21,21 +21,17 @@ export default function CardWoman({ woman }) {
 const styles = StyleSheet.create({
     womanCardContainer: {
         flex: 1,
-        paddingHorizontal: 15,
+        paddingHorizontal: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        rowGap: 15,
-        padding: 30,
-        borderRadius: 10,
         height: 500,
     },
     titleText: {
-        fontSize: 22,
+        fontSize: 24,
         marginBottom: 20,
     },
     contentText: {
-        fontSize: 18,
-        marginBottom: 20,
+        marginTop: 10
     },
     background: {
         position: 'absolute',
@@ -43,5 +39,6 @@ const styles = StyleSheet.create({
         right: 0,
         top: 0,
         height: 490,
+        borderRadius: 20,
     },
 });

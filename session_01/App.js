@@ -4,6 +4,7 @@ import { Text, SafeAreaView, Platform, FlatList, ActivityIndicator } from 'react
 
 import { s } from './styles/styles.js';
 import CardWoman from './components/CardWoman.jsx';
+import Line from './components/Line.jsx';
 
 
 const URL = "https://67f95738094de2fe6ea13bdf.mockapi.io/api/v1/data";
@@ -46,8 +47,11 @@ export default function App() {
           <Text>{error}</Text>
           :
           <FlatList
+            style={{ marginTop: 20, paddingStart: 10, paddingEnd: 10 }}
+            showsVerticalScrollIndicator={false}
             data={data}
             keyExtractor={item => item.id}
+            ItemSeparatorComponent={() => <Line />}
             renderItem={({ item }) =>
               <CardWoman woman={item} />
             }
